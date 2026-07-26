@@ -66,7 +66,7 @@ In medical emergencies — trauma, surgery, childbirth complications, chronic il
 
 | Resource | Link |
 |---|---|
-| 🔗 **Live Deployed App** | [PASTE_YOUR_LIVE_DEPLOYED_URL_HERE](PASTE_YOUR_LIVE_DEPLOYED_URL_HERE) |
+| 🔗 **Live Deployed App** | [https://blood-donation-one-chi.vercel.app/](https://blood-donation-one-chi.vercel.app/) |
 | 💻 **Source Code (GitHub)** | [PASTE_YOUR_GITHUB_REPO_URL_HERE](PASTE_YOUR_GITHUB_REPO_URL_HERE) |
 
 > No installation needed to try it out — open the live link above. Use the **Guest Donor Login** for the fastest way to explore the app without creating an account.
@@ -78,27 +78,35 @@ In medical emergencies — trauma, surgery, childbirth complications, chronic il
 <table>
   <tr>
     <td align="center"><b>Home Feed & Emergency Requests</b></td>
-    <td align="center"><b>AI Eligibility & Health Advisor</b></td>
+    <td align="center"><b>Home Feed & Emergency Requests</b></td>
   </tr>
   <tr>
-    <td><img src="./assets/screenshot-feed.png" alt="Home Feed & Emergency Requests" width="400"/></td>
-    <td><img src="./assets/screenshot-ai-advisor.png" alt="AI Blood Donor Eligibility & Health Advisor" width="400"/></td>
+    <td><img src="./assets/live-request1.png" alt="Home Feed & Emergency Requests" width="400"/></td>
+    <td><img src="./assets/live-request2.png" alt="Home Feed & Emergency Requests" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>AI Eligibility & Health Advisor</b></td>
+    <td align="center"><b>User Registration Page</b></td>
+  </tr>
+  <tr>
+    <td><img src="./assets/AI-healthCare.png" alt="AI Blood Donor Eligibility & Health Advisor" width="400"/></td>
+    <td><img src="./assets/register-user.png" alt="User Registration Page" width="400"/></td>
   </tr>
   <tr>
     <td align="center"><b>Nearby Donor Directory & Compatibility Search</b></td>
-    <td align="center"><b>Emergency Request Detail & Direct Dispatch</b></td>
+    <td align="center"><b>Emergency Request Detail & Direct Dispatch Notifications</b></td>
   </tr>
   <tr>
-    <td><img src="./assets/screenshot-donor-search.png" alt="Nearby Donor Directory" width="400"/></td>
-    <td><img src="./assets/screenshot-request-detail.png" alt="Request Detail & Email Dispatch" width="400"/></td>
+    <td><img src="./assets/donor.png" alt="Nearby Donor Directory" width="400"/></td>
+    <td><img src="./assets/create-requests.png" alt="Request Detail & Direct Dispatch Notifications" width="400"/></td>
   </tr>
   <tr>
     <td align="center"><b>Authentication</b></td>
     <td align="center"><b>Notification Center</b></td>
   </tr>
   <tr>
-    <td><img src="./assets/screenshot-auth.png" alt="Authentication Modal" width="400"/></td>
-    <td><img src="./assets/screenshot-notifications.png" alt="Notification Center" width="400"/></td>
+    <td><img src="./assets/sign-in.png" alt="Authentication Modal" width="400"/></td>
+    <td><img src="./assets/notification.png" alt="Notification Center" width="400"/></td>
   </tr>
 </table>
 
@@ -124,7 +132,6 @@ In medical emergencies — trauma, surgery, childbirth complications, chronic il
 ### 👥 Donor Directory & Search
 - **ABO/Rh compatibility engine** — matches universal donors (O−), universal recipients (AB+), and all specific antigen compatibility combinations.
 - **Live availability status** — donors can toggle their availability and see their last donation date.
-- **Direct email dispatch** — send an emergency alert email straight to a compatible donor from within the app.
 
 ### 🔔 Notifications & User Profiles
 - **Notification Center** — badge counter and drawer showing emergency alerts, request updates, and donor responses.
