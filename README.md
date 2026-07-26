@@ -67,7 +67,7 @@ In medical emergencies — trauma, surgery, childbirth complications, chronic il
 | Resource | Link |
 |---|---|
 | 🔗 **Live Deployed App** | [https://blood-donation-one-chi.vercel.app/](https://blood-donation-one-chi.vercel.app/) |
-| 💻 **Source Code (GitHub)** | [PASTE_YOUR_GITHUB_REPO_URL_HERE](PASTE_YOUR_GITHUB_REPO_URL_HERE) |
+| 💻 **Source Code (GitHub)** | [https://github.com/muhammadikram23/blood-donation](https://github.com/muhammadikram23/blood-donation) |
 
 > No installation needed to try it out — open the live link above. Use the **Guest Donor Login** for the fastest way to explore the app without creating an account.
 
@@ -109,8 +109,6 @@ In medical emergencies — trauma, surgery, childbirth complications, chronic il
     <td><img src="./assets/notification.png" alt="Notification Center" width="400"/></td>
   </tr>
 </table>
-
-> _Replace the placeholder images above with actual screenshots stored in the `/assets` folder before publishing._
 
 ---
 
