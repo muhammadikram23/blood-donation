@@ -1,28 +1,39 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';
-import firebaseAppletConfig from '../firebase-applet-config.json';
 
-const getValidConfig = (envVal: string | undefined, defaultConfig: string) => {
-  if (envVal && envVal.trim() !== '' && !envVal.toLowerCase().includes('your_')) {
-    return envVal;
+// NOTE: This project used to import a local `firebase-applet-config.json` file
+// as a fallback here. That file is intentionally gitignored (it holds your
+// real Firebase config), which means it never exists on Vercel — so a static
+// `import` of it broke every Vercel build at the "transforming..." step with
+// "Failed to resolve import ... Does the file exist?". Config now comes
+// purely from environment variables (VITE_FIREBASE_*), which you set once
+// in your local .env file and once in Vercel Project Settings > Environment
+// Variables — no local-only file required.
+const requireEnv = (key: string, value: string | undefined): string => {
+  if (!value || value.trim() === '' || value.toLowerCase().includes('your_')) {
+    throw new Error(
+      `Missing Firebase config: ${key} is not set. Add it to your .env file locally, ` +
+      `or to your Vercel Project Settings > Environment Variables when deployed.`
+    );
   }
-  return defaultConfig;
+  return value;
 };
 
 const firebaseConfig = {
-  apiKey: getValidConfig(import.meta.env.VITE_FIREBASE_API_KEY, firebaseAppletConfig.apiKey),
-  authDomain: getValidConfig(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN, firebaseAppletConfig.authDomain),
-  projectId: getValidConfig(import.meta.env.VITE_FIREBASE_PROJECT_ID, firebaseAppletConfig.projectId),
-  storageBucket: getValidConfig(import.meta.env.VITE_FIREBASE_STORAGE_BUCKET, firebaseAppletConfig.storageBucket),
-  messagingSenderId: getValidConfig(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID, firebaseAppletConfig.messagingSenderId),
-  appId: getValidConfig(import.meta.env.VITE_FIREBASE_APP_ID, firebaseAppletConfig.appId)
+  apiKey: requireEnv('VITE_FIREBASE_API_KEY', import.meta.env.VITE_FIREBASE_API_KEY),
+  authDomain: requireEnv('VITE_FIREBASE_AUTH_DOMAIN', import.meta.env.VITE_FIREBASE_AUTH_DOMAIN),
+  projectId: requireEnv('VITE_FIREBASE_PROJECT_ID', import.meta.env.VITE_FIREBASE_PROJECT_ID),
+  storageBucket: requireEnv('VITE_FIREBASE_STORAGE_BUCKET', import.meta.env.VITE_FIREBASE_STORAGE_BUCKET),
+  messagingSenderId: requireEnv('VITE_FIREBASE_MESSAGING_SENDER_ID', import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID),
+  appId: requireEnv('VITE_FIREBASE_APP_ID', import.meta.env.VITE_FIREBASE_APP_ID),
 };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-const rawDatabaseId = firebaseAppletConfig.firestoreDatabaseId;
+// Optional: only needed if you use a named Firestore database instead of "(default)"
+const rawDatabaseId = import.meta.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID;
 export const db = (rawDatabaseId && rawDatabaseId !== '' && rawDatabaseId !== '(default)')
   ? getFirestore(app, rawDatabaseId)
   : getFirestore(app);
