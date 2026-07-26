@@ -9,14 +9,14 @@
 </p>
 
 <p align="center">
-  <a href="PASTE_YOUR_LIVE_DEPLOYED_URL_HERE"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel" alt="Live Demo"></a>
+  <a href="https://blood-donation-one-chi.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel" alt="Live Demo"></a>
   <a href="https://ai.google.dev/"><img src="https://img.shields.io/badge/AI-Gemini%203.6%20Flash-4285F4?style=for-the-badge&logo=google" alt="AI Powered"></a>
   <a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/Backend-Firebase-FFCA28?style=for-the-badge&logo=firebase" alt="Firebase"></a>
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 </p>
 
 <p align="center">
-  🔗 <b>Live App:</b> <a href="PASTE_YOUR_LIVE_DEPLOYED_URL_HERE">PASTE_YOUR_LIVE_DEPLOYED_URL_HERE</a>
+  🔗 <b>Live App:</b> <a href="https://blood-donation-one-chi.vercel.app/">https://blood-donation-one-chi.vercel.app/</a>
 </p>
 
 ---
