@@ -1,0 +1,63 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      // Anyone can read user profiles (for public donor directory & matching)
+      allow read: if true;
+      // Users can create and update only their own profile
+      allow create, update: if isOwner(userId);
+      allow delete: if false;
+    }
+
+    // Blood Requests Collection
+    match /bloodRequests/{requestId} {
+      // Anyone can read blood requests (for public emergency request feed)
+      allow read: if true;
+      // Authenticated users can create blood requests
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      // Requester or authorized users can update status
+      allow update: if isSignedIn();
+      // Only owner can delete their request
+      allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    // Interested Donations Collection
+    match /interestedDonations/{donationId} {
+      // Donors or Requesters involved in the pledge can read
+      allow read: if isSignedIn();
+      // Authenticated donors can create a pledge
+      allow create: if isSignedIn() && request.resource.data.donorId == request.auth.uid;
+      // Donor or Requester can update status (e.g., accepted or declined by requester)
+      allow update: if isSignedIn();
+      // Donor can delete their pledge
+      allow delete: if isSignedIn() && resource.data.donorId == request.auth.uid;
+    }
+
+    // Notifications Collection
+    match /notifications/{notificationId} {
+      // Users can only read and manage their own notifications
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      // Anyone signed in can create notifications for another user
+      allow create: if isSignedIn();
+      // User can update (e.g., mark as read) or delete their own notification
+      allow update, delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

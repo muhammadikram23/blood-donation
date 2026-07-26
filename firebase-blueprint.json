@@ -1,0 +1,102 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered user / donor profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "bloodGroup": { "type": "string", "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"] },
+        "address": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "isAvailableDonor": { "type": "boolean" },
+        "profileImage": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "email", "bloodGroup", "createdAt"]
+    },
+    "BloodRequest": {
+      "title": "BloodRequest",
+      "description": "Urgent blood request posted by a user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "requesterName": { "type": "string" },
+        "patientName": { "type": "string" },
+        "bloodGroup": { "type": "string", "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"] },
+        "unitsNeeded": { "type": "number" },
+        "hospital": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "urgency": { "type": "string", "enum": ["Critical", "Urgent", "Normal"] },
+        "description": { "type": "string" },
+        "requiredBefore": { "type": "string" },
+        "emergencyContact": { "type": "string" },
+        "status": { "type": "string", "enum": ["Open", "Donor Confirmed", "Fulfilled", "Closed"] },
+        "acceptedDonorId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "patientName", "bloodGroup", "hospital", "urgency", "requiredBefore", "emergencyContact", "status", "createdAt"]
+    },
+    "InterestedDonation": {
+      "title": "InterestedDonation",
+      "description": "Pledge of interest by a donor for a blood request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "requestId": { "type": "string" },
+        "donorId": { "type": "string" },
+        "donorName": { "type": "string" },
+        "donorBloodGroup": { "type": "string" },
+        "donorPhone": { "type": "string" },
+        "donorAddress": { "type": "string" },
+        "donorLatitude": { "type": "number" },
+        "donorLongitude": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "accepted", "declined"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["requestId", "donorId", "donorName", "donorBloodGroup", "status", "createdAt"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "User notification item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string", "enum": ["interest_received", "interest_accepted", "interest_declined", "nearby_request", "status_change"] },
+        "requestId": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "message", "type", "isRead", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile collection"
+    },
+    "/bloodRequests/{requestId}": {
+      "schema": { "$ref": "#/entities/BloodRequest" },
+      "description": "Blood requests collection"
+    },
+    "/interestedDonations/{donationId}": {
+      "schema": { "$ref": "#/entities/InterestedDonation" },
+      "description": "Interested donor pledges"
+    },
+    "/notifications/{notificationId}": {
+      "schema": { "$ref": "#/entities/Notification" },
+      "description": "User in-app notifications"
+    }
+  }
+}

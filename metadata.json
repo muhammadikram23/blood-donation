@@ -1,0 +1,6 @@
+{
+  "name": "Blood Donation",
+  "description": "Connecting Blood Donors with People in Need",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

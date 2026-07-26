@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #F9F7F2;
+    color: #3C3836;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  h1, h2, h3, .font-serif-heading {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+}
+
+/* Custom Natural Tones Palette Utility Classes */
+.bg-natural-bg { background-color: #F9F7F2; }
+.bg-natural-card { background-color: #FFFFFF; }
+.bg-natural-crimson { background-color: #A63D40; }
+.bg-natural-crimson-hover:hover { background-color: #8E3235; }
+.bg-natural-sage { background-color: #7D8471; }
+.bg-natural-sand { background-color: #E5E1D8; }
+.bg-natural-sand-light { background-color: #F1E9E0; }
+
+.text-natural-dark { color: #3C3836; }
+.text-natural-crimson { color: #A63D40; }
+.text-natural-sage { color: #7D8471; }
+.text-natural-muted { color: #7C756E; }
+
+.border-natural-sand { border-color: #E5E1D8; }
+.border-natural-sand-light { border-color: #F1E9E0; }
+.border-natural-crimson { border-color: #A63D40; }
+.border-natural-sage { border-color: #7D8471; }
