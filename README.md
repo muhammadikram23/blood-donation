@@ -1,7 +1,7 @@
 # 🩸 LifeFlow — Emergency Blood Donation & AI Health Advisor Platform
 
 <p align="center">
-  <img src="./assets/logo.png" alt="LifeFlow Logo" width="120" />
+  <img src="./assets/logo.png" alt="LifeFlow Logo" width="200" />
 </p>
 
 <p align="center">
@@ -69,7 +69,7 @@ In medical emergencies — trauma, surgery, childbirth complications, chronic il
 | 🔗 **Live Deployed App** | [https://blood-donation-one-chi.vercel.app/](https://blood-donation-one-chi.vercel.app/) |
 | 💻 **Source Code (GitHub)** | [https://github.com/muhammadikram23/blood-donation](https://github.com/muhammadikram23/blood-donation) |
 
-> No installation needed to try it out — open the live link above. Use the **Guest Donor Login** for the fastest way to explore the app without creating an account.
+> > No installation required — just open the live link above and start using the app immediately. You can create a full account (Email/Password or Google) directly on the live site, or skip that step entirely with **Guest Donor Login** for the fastest way in.
 
 ---
 
